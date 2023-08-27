@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Price(
-    val priceUsd: Double = 0.toDouble(),
+    val priceUsd: Double = 0.0,
 )

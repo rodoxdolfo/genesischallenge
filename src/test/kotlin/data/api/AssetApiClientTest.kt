@@ -1,7 +1,6 @@
-package genesischallenge
-
-import genesischallenge.utils.*
-import genesischallenge.data.api.*
+import genesischallenge.data.api.AssetApiClient
+import genesischallenge.data.api.BASE_URL
+import genesischallenge.utils.roundTo2Decimal
 import io.ktor.client.*
 import io.ktor.client.engine.mock.*
 import io.ktor.client.plugins.*
@@ -50,9 +49,11 @@ class AssetApiClientTest {
                             headers = responseHeaders
                         )
                     }
+
                     "$BASE_URL?search=XXX&limit=1" -> {
                         throw ConnectTimeoutException(request)
                     }
+
                     "$BASE_URL/bitcoin/history?interval=d1&start=1617753600000&end=1617753601000" -> {
                         val responseHeaders =
                             headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
@@ -77,9 +78,11 @@ class AssetApiClientTest {
                             headers = responseHeaders
                         )
                     }
+
                     "$BASE_URL/X/history?interval=d1&start=1617753600000&end=1617753601000" -> {
                         throw ConnectTimeoutException(request)
                     }
+
                     else -> error("Unhandled ${request.url}")
                 }
             }
@@ -99,6 +102,7 @@ class AssetApiClientTest {
         val assetResponse = apiClient.fetchAsset("XXX")
         assertEquals("", assetResponse.data.first().id)
     }
+
     @Test
     fun `test fetchPrice success`() = runTest {
         val historyResponse = apiClient.fetchPrice("bitcoin")
@@ -106,6 +110,7 @@ class AssetApiClientTest {
         assertEquals("57471.38", historyResponse.data.first().priceUsd.roundTo2Decimal())
         assertEquals("57471.38", historyResponse.data.last().priceUsd.roundTo2Decimal())
     }
+
     @Test
     fun `test fetchPrice error`() = runTest {
         val historyResponse = apiClient.fetchPrice("X")

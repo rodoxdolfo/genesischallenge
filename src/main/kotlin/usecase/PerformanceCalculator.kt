@@ -1,6 +1,7 @@
-package genesischallenge.utils
+package genesischallenge.usecase
 
-import genesischallenge.domain.*
+import genesischallenge.domain.Asset
+import genesischallenge.domain.WalletPerformance
 
 fun calculatePerformance(assets: List<Asset>): WalletPerformance {
     if (assets.isEmpty()) {

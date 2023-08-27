@@ -1,7 +1,6 @@
-package genesischallenge
-
-import genesischallenge.domain.*
-import genesischallenge.utils.*
+import genesischallenge.domain.Asset
+import genesischallenge.domain.WalletPerformance
+import genesischallenge.usecase.*
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test

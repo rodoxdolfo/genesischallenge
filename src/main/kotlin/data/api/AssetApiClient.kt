@@ -1,6 +1,8 @@
 package genesischallenge.data.api
 
-import genesischallenge.data.model.*
+import genesischallenge.data.model.AssetResponse
+import genesischallenge.data.model.CoinCapResponse
+import genesischallenge.data.model.PriceResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -19,7 +21,7 @@ class AssetApiClient(private val client: HttpClient = configureHttpClient()) {
             }.body<CoinCapResponse<List<AssetResponse>>>()
         } catch (e: Exception) {
             println("An exception happened when fetching the Asset for '$symbol': ${e.message}")
-            CoinCapResponse(listOf(AssetResponse( "")))
+            CoinCapResponse(listOf(AssetResponse("")))
         }
     }
 
@@ -33,7 +35,7 @@ class AssetApiClient(private val client: HttpClient = configureHttpClient()) {
             }.body<CoinCapResponse<List<PriceResponse>>>()
         } catch (e: Exception) {
             println("An exception happened when fetching the Price for '$assetId': ${e.message}")
-            CoinCapResponse(listOf(PriceResponse( 0.0)))
+            CoinCapResponse(listOf(PriceResponse(0.0)))
         }
     }
 }
