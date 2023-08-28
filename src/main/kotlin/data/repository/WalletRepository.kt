@@ -18,9 +18,7 @@ class WalletRepositoryImpl : WalletRepository {
         return lines.drop(1).map { line ->
             val fields: List<String> = line.split(",")
             Asset(
-                symbol = fields[0],
-                quantity = fields[1].toDouble(),
-                priceUsd = fields[2].toDouble()
+                symbol = fields[0], quantity = fields[1].toDouble(), priceUsd = fields[2].toDouble()
             )
         }
 

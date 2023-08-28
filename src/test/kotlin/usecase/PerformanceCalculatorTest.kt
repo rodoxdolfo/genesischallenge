@@ -1,6 +1,6 @@
 import genesischallenge.domain.Asset
 import genesischallenge.domain.WalletPerformance
-import genesischallenge.usecase.*
+import genesischallenge.usecase.calculatePerformance
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
