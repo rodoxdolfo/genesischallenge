@@ -2,7 +2,9 @@
 A console application that given a csv wallet checks the price of crypto currencies and calculate their performance
 
 #### Architecture
+  - Clean Architecture
   - [Ktor](https://ktor.io/) for http comunication
+  - [Koin] (https://insert-koin.io) for reference injection
     
 #### Tests
   - JUnit for testing application;
