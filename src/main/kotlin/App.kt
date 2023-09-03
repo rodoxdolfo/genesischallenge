@@ -16,10 +16,12 @@ val performanceModule = module {
 }
 
 fun main() {
-
+    //Configuring modules for dependency injection
     startKoin {
         modules(performanceModule)
     }
+
+    //Using runBlocking to avoid an exit before the coroutines are over
     runBlocking {
         try {
             val walletPerformance = PerformanceController().getWalletPerformance("/wallet.csv")

@@ -9,6 +9,7 @@ fun calculatePerformance(assets: List<Asset>): WalletPerformance {
     }
 
     val updatedAssets = assets.map { asset ->
+        //measuring the performance of the asset between the original price and the updated price
         val performance = (asset.updatedPrice / asset.priceUsd)
         asset.copy(updatedPrice = asset.updatedPrice, performance = performance, quantity = asset.quantity)
     }

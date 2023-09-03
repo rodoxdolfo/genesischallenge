@@ -9,7 +9,7 @@ interface WalletRepository {
 
 class WalletRepositoryImpl : WalletRepository {
     override fun readWalletFile(filePath: String): List<Asset> {
-
+        //Getting the data from the wallet file located on the resource folder of the project
         val lines = object {}.javaClass.getResourceAsStream(filePath)?.bufferedReader()?.use { reader ->
             reader.readLines()
         } ?: throw FileNotFoundException("Wallet file not found: $filePath")

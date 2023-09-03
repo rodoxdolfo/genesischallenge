@@ -10,6 +10,7 @@ fun configureHttpClient(): HttpClient = HttpClient(CIO) {
     install(ContentNegotiation) {
         json(
             Json {
+                //configuring the HttpClient to ignore json key not in use by the logic of the code
                 ignoreUnknownKeys = true
             }
         )
